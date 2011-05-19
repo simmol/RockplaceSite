@@ -1,15 +1,16 @@
-from django.conf.urls.defaults import patterns, include, url
+from django.conf.urls.defaults import *
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'rockplacesite.views.home', name='home'),
-    # url(r'^rockplacesite/', include('rockplacesite.foo.urls')),
+    # Admin:
+    (r'^admin/doc/', include('django.contrib.admindocs.urls')),
+    (r'^admin/', include(admin.site.urls)),
 
-    # Admin
-    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-    url(r'^admin/', include(admin.site.urls)),
+    (r'^gallery/', include("gallery.urls")),
+    (r'^$', 'django.views.generic.simple.direct_to_template',
+              {'template': 'home.html'}),
+
 )
