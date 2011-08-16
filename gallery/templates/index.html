@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %} Albums pulled from Picasa {% endblock %}
+{% block content %}
+  <ul id="gallery">
+  {% for album in gallery %}
+  <li class="album">
+    <div class="title">{{ album.title }}</div>
+    <a href="{{ album.url|safe }}">
+      <img src="{{ album.album_photo.src|safe }}" alt="{{ album.album_photo.title }}">
+    </a>
+  </li>
+  {% endfor %}
+  </ul>
+{% endblock %}

@@ -3,7 +3,7 @@
   <head>
     <title>{% block head_title %} RockPlace -  Нашият свят - Portal {% endblock %}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css"/>
     <link rel="icon" type="image/png" href="{{ STATIC_URL }}images/favicon.png"/>
   </head>
   <body>
@@ -20,7 +20,8 @@
 
       {% block middle_collumn %}
       <div id="content">
-        <h1>{% block title %} RockPlace -  Нашият свят {% endblock %}</h1>
+        {% block title %}<h1>RockPlace -  Нашият свят </h1>{% endblock %}
+        {% block content %} {% endblock %}
       </div>
       {% endblock %}
 

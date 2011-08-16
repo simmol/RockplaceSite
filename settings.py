@@ -13,6 +13,12 @@ ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
 
+GCLIENT = {
+  'email': 'rockplace.site@gmail.com',
+  'password': 'rockplace',
+  'source': 'exampleApp'
+}
+
 MANAGERS = ADMINS
 
 DATABASES = {
