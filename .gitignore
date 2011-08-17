@@ -9,4 +9,5 @@
 # PIDA
 .pida-metadata
 *.pidaproject
-
+#NetBeans
+nbproject

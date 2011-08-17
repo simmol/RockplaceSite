@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<H2>NEWS</H2>
+{% if latest_article_list %}
+    <ul>
+    {% for article in latest_article_list %}
+        {% if article.published %}
+            <li><H3>{{ article.title }}</H3></li>
+            <div>{{ article.content }}</div>
+        {% endif %}
+    {% endfor %}
+    </ul>
+{% else %}
+    <li>No articles are available.</li>
+{% endif %}
+{% endblock %}

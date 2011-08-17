@@ -126,7 +126,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
     # Custom
-    'gallery',
+    #'gallery',
+    'news',
 )
 
 # A sample logging configuration. The only tangible logging
