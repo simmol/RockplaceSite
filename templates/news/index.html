@@ -3,13 +3,35 @@
 <H2>NEWS</H2>
 {% if latest_article_list %}
     <ul>
-    {% for article in latest_article_list %}
-        {% if article.published %}
-            <li><H3>{{ article.title }}</H3></li>
-            <div>{{ article.content }}</div>
-        {% endif %}
+    {% for article in latest_article_list.object_list %}
+        <li>
+            <H3><a href="{% url news.views.details article.id %}">{{ article.title }}</a></H3>
+         
+            <div>
+              {{ article.content|truncatewords_html:30 }} 
+              <a href="{% url news.views.details article.id %}">view more</a>
+            </div>
+         </li>  
     {% endfor %}
-    </ul>
+     </ul>
+    
+    <div class="pagination">
+      <span class="step-links">
+        {% if latest_article_list.has_previous %}
+          <a href="?page={{ latest_article_list.previous_page_number }}">previous</a>
+        {% endif %}
+        
+        <span class="current">
+          Page {{ latest_article_list.number }} of {{ latest_article_list.paginator.num_pages }}
+        </span>
+        
+        {% if latest_article_list.has_next %}
+          <a href="?page={{ latest_article_list.next_page_number }}">next</a>
+        {% endif %}
+      </span>
+    </div>
+    
+   
 {% else %}
     <li>No articles are available.</li>
 {% endif %}

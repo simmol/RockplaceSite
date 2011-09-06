@@ -30,3 +30,7 @@ body {
   clear: both;
   text-align: center;
 }
+
+li {
+  list-style: none;
+}

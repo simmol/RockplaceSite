@@ -152,3 +152,7 @@ LOGGING = {
         },
     }
 }
+
+
+# News settings
+NEWS_PER_PAGE = 2

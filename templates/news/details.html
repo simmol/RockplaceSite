@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+  <H2>NEWS</H2>
+  {% if article %}
+    Name: {{article.title}}<br/>
+    ID: {{article.id}}<br/>
+    {{article.content}}
+  {% endif %}
+{% endblock %}
