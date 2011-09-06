@@ -1,1 +1,14 @@
 {% extends "base.html" %}
+{% block left_collumn %}
+  <div id="left_sidebar">
+    <ul>
+      {% load menubuilder %}
+      {% menu Main %}
+      {% for item in menuitems %}
+        <li>
+          {{ item.title }}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}
