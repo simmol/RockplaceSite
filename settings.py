@@ -128,6 +128,7 @@ INSTALLED_APPS = (
     # Custom
     #'gallery',
     'news',
+    'menu',
 )
 
 # A sample logging configuration. The only tangible logging
