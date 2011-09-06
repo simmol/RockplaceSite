@@ -1,9 +1,10 @@
-from menu.models import Menu, MenuItem
 from django import template
+
+from menu.models import Menu, MenuItem
 
 register = template.Library()
 
-def biuld_menu(parser, token):
+def build_menu(parser, token):
   try:
     tag_name, menu_name = token.split_contents()
   except:
@@ -15,8 +16,11 @@ class MenuObject(template.Node):
     self.menu_name = menu_name
     
   def render(self, context):
-    current_path = template.resolve_variable('request.path', context)
-    user = template.resolve_variable('request.user', context)
+#    current_path = template.Variable('get_full_path').resolve(context)
+    current_path = '/'
+    user = template.Variable('user').resolve(context)
+    #current_path = template.resolve_variable('request.path', context)
+    #user = template.resolve_variable('request.user', context)
     context['menuitems'] = get_items(self.menu_name, current_path, user)
     return ''
   
@@ -49,7 +53,7 @@ class SubMenuObject(template.Node):
     
 def get_items(menu, current_path, user):
   menuitems = []
-  for i in MenuItems.objects.filter(menu_slug = menu).order_by('order'):
+  for i in MenuItem.objects.filter(menu__slug = menu).order_by('order'):
     current = (i.link_url != '/' and current_path.startswith(i.link_url)) or (i.link_url == '/' and current_path == '/')
     if not i.login_required or (i.login_required and user.is_authenticated()):
       menuitems.append({'url':i.link_url, 'title':i.title, 'current':current})
