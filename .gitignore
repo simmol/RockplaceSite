@@ -9,5 +9,9 @@
 # PIDA
 .pida-metadata
 *.pidaproject
+
 #NetBeans
 nbproject
+
+#Image files
+media/profiles/*
