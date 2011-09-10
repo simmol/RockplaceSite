@@ -125,10 +125,12 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.admindocs',
+    'django.contrib.comments',
     # Custom
     #'gallery',
     'news',
     'menu',
+    'profiles',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -157,3 +159,4 @@ LOGGING = {
 
 # News settings
 NEWS_PER_PAGE = 2
+AUTH_PROFILE_MODULE = 'rockplacesite.UserProfile'

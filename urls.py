@@ -13,5 +13,7 @@ urlpatterns = patterns('',
     (r'^news/', include("news.urls")),
     (r'^$', 'django.views.generic.simple.direct_to_template',
               {'template': 'home.html'}),
+    
+    (r'^comments/', include('django.contrib.comments.urls')),
 
 )
