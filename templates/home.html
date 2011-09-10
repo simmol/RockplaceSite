@@ -6,7 +6,7 @@
       {% menu Main %}
       {% for item in menuitems %}
         <li>
-          {{ item.title }}
+          <a href ="{{ item.url }}">{{ item.title }}</a>
         </li>
       {% endfor %}
     </ul>
