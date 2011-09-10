@@ -22,7 +22,7 @@ class Menu(models.Model):
 class MenuItem(models.Model):
   menu = models.ForeignKey(Menu)
   order = models.IntegerField()
-  link_url = models.CharField(max_length = 100, help_text = 'URL or URI to the content')
+  link_url = models.URLField(max_length = 100)
   title = models.CharField(max_length = 100)
   login_required = models.NullBooleanField()
   
